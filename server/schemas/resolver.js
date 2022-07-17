@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Comment } = require('../models');
+const { User, Comment, Photo } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -87,7 +87,39 @@ const resolvers = {
       }
 
       throw new AuthenticationError('You need to be logged in!');
+    },
+    addLike: async(parent,{photoId}, context) =>{
+      if (context.user) {
+        const updatedPhoto =  await Photo.findOneAndUpdate(
+          {_id: photoId},
+          { $push: {liked: context.user._id}},
+          {new: true, runValidators: true}
+        );
+        return updatedPhoto; 
+      }
+    },
+    addDislike: async(parent, {photoId}, context) =>{
+      if (context.user) {
+        const updatedPhoto =  await Photo.findOneAndUpdate(
+          {_id: photoId},
+          { $push: {unliked: context.user._id}},
+          {new: true, runValidators: true}
+        );
+        return updatedPhoto; 
+      }
+    },
+  savePhoto: async(parent,{photoId}, context) =>{
+    if (context.user) {
+      const updatedUser = await User.findByIdAndUpdate(
+        {_id: context.user._id},
+        {$push:{likes: photoId}},
+        {new: true, runValidators: true}
+      );
+      return updatedUser;
     }
+  }
+    
+   
 }};
 
 module.exports = resolvers;

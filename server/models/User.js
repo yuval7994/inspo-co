@@ -26,6 +26,12 @@ const userSchema = new Schema(
         ref: 'Comment'
       }
     ],
+    likes: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Photo'
+      }
+    ]
   },
   {
     toJSON: {

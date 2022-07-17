@@ -6,6 +6,15 @@ const typeDefs = gql`
     username: String
     email: String
     comments: [Comment]
+    likes : Photo
+  }
+
+  type Photo {
+    _id: ID
+    photo_name = String
+    photo_url = String
+    liked = Number
+    unliked = Number
   }
 
   type Comment {
@@ -40,8 +49,11 @@ const typeDefs = gql`
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    addComment(commetnText: String!): Comment
+    addComment(commentText: String!): Comment
     addReaction(commentId: ID!, reactionBody: String!): Comment
+    addLike(photoId: ID!): Photo
+    addDislike(photoId: ID!): Photo
+    savePhoto(photoId: ID!): User 
   }
 `;
 
