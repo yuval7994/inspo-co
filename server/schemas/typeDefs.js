@@ -1,4 +1,4 @@
-const { gql } = require('apollo-server-express');
+const { gql } = require("apollo-server-express")
 
 const typeDefs = gql`
   type User {
@@ -6,15 +6,15 @@ const typeDefs = gql`
     username: String
     email: String
     comments: [Comment]
-    likes : Photo
+    likes: Photo
   }
 
   type Photo {
     _id: ID
-    photo_name = String
-    photo_url = String
-    liked = Number
-    unliked = Number
+    photo_name: String
+    photo_url: String
+    liked: User
+    unliked: User
   }
 
   type Comment {
@@ -53,8 +53,9 @@ const typeDefs = gql`
     addReaction(commentId: ID!, reactionBody: String!): Comment
     addLike(photoId: ID!): Photo
     addDislike(photoId: ID!): Photo
-    savePhoto(photoId: ID!): User 
+    savePhoto(photoId: ID!): User
+    sharePhoto(username: String!, photoID: ID!): User
   }
-`;
+`
 
-module.exports = typeDefs;
+module.exports = typeDefs
