@@ -1,15 +1,11 @@
-// import React, { Component } from 'react';
+import React from 'react';
 
-// export default class Footer extends Component {
-//     render() {
-//         // use props to populate this
-//         // let BLANK = this.props.BLANK;
-//         return (
-//             <footer>
-//                 <div>
-                    
-//                 </div>
-//             </footer>
-//         )
-//     }
-// }
+
+function Footer() {
+  return (
+    <section>
+      <h1>PLEASE HELP</h1>
+    </section>
+  );
+}
+export default Footer;
