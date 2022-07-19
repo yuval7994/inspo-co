@@ -1,17 +1,14 @@
-import React, { Component } from 'react';
+import React from "react";
 
-export default class Main extends Component {
-    render() {
-        // use props to populate this
-        // let BLANK = this.props.BLANK;
-        return (
-            <section id="main">
-                <div>
-                    <div>
-                        <h1>Welcome to Inspo.com!</h1>
-                    </div>
-                </div>
-            </section>
-        )
-    }
+function App() {
+  return (
+    <section className="my-5">
+      <h1 id="main">Welcome to Inspo.co!</h1>
+      <div className="my-2">
+        <p>{/* dash components will go here */}</p>
+      </div>
+    </section>
+  );
 }
+
+export default App;
