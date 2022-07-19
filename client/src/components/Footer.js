@@ -1,10 +1,9 @@
 import React from 'react';
 
-
 function Footer() {
   return (
-    <section>
-      <h1>PLEASE HELP</h1>
+    <section className = "footer">
+      <h6>Made with love by Justin, Yuval, Emily, and Elyse</h6>
     </section>
   );
 }

@@ -1,12 +1,10 @@
-import React from 'react';
-
-// IMPORT API PHOTOS CONST
-// import DashPhotos from API;
+import { React } from 'react';
 
 function Main() {
   return (
-    <section>
-      <h1>hello</h1>
+    <section className="main-dash">
+      <h1>DASHBOARD WILL GO HERE</h1>
+      
     </section>
   );
 }
