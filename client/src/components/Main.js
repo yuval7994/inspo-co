@@ -1,16 +1,13 @@
 import React from 'react';
-// from GitLab
-import PhotoList from '../PhotoList';
 
-function Gallery(props) {
-  const { currentCategory } = props;
+// IMPORT API PHOTOS CONST
+// import DashPhotos from API;
+
+function Main() {
   return (
     <section>
-      <h1 data-testid="h1tag">{(currentCategory.name)}</h1>
-      <p>{currentCategory.description}</p>
-      {/* from GitLab */}
-      <PhotoList category={currentCategory.name} />
+      <h1>hello</h1>
     </section>
   );
 }
-export default Gallery;
+export default Main;
