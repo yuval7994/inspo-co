@@ -54,7 +54,7 @@ const typeDefs = gql`
     addLike(photoId: ID!): Photo
     addDislike(photoId: ID!): Photo
     savePhoto(photoId: ID!): User
-    sharePhoto(username: String!, photoID: ID!): User
+    sharePhoto(username: String!, photoId: ID!): User
   }
 `
 
