@@ -1,14 +1,16 @@
-import React from "react";
+import React from 'react';
+// from GitLab
+import PhotoList from '../PhotoList';
 
-function App() {
+function Gallery(props) {
+  const { currentCategory } = props;
   return (
-    <section className="my-5">
-      <h1 id="main">Welcome to Inspo.co!</h1>
-      <div className="my-2">
-        <p>{/* dash components will go here */}</p>
-      </div>
+    <section>
+      <h1 data-testid="h1tag">{(currentCategory.name)}</h1>
+      <p>{currentCategory.description}</p>
+      {/* from GitLab */}
+      <PhotoList category={currentCategory.name} />
     </section>
   );
 }
-
-export default App;
+export default Gallery;

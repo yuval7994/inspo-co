@@ -1,28 +1,28 @@
-import React, { Component } from 'react';
-export default class Header extends Component {
-    render() {
-        // use props to populate this
-        // let BLANK = this.props.BLANK;
-        return (
-            <React.Fragment>
+// import React, { Component } from 'react';
+// export default class Header extends Component {
+//     render() {
+//         // use props to populate this
+//         // let BLANK = this.props.BLANK;
+//         return (
+//             <React.Fragment>
 
-                <header>
+//                 <header>
                     
-                    <h1>Welcome to Inspo.co!</h1>
+//                     <h1>Welcome to Inspo.co!</h1>
 
-                    <nav>
-                        <div>
+//                     <nav>
+//                         <div>
 
-                            <ul>
-                                <li><a href="">nav 1</a></li>
-                                <li><a href="">nav 2</a></li>
-                            </ul>
+//                             <ul>
+//                                 <li><a href="">nav 1</a></li>
+//                                 <li><a href="">nav 2</a></li>
+//                             </ul>
 
-                        </div>
-                    </nav>
-                </header>
+//                         </div>
+//                     </nav>
+//                 </header>
 
-            </React.Fragment>
-        )
-    }
-}
+//             </React.Fragment>
+//         )
+//     }
+// }
