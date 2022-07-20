@@ -31,11 +31,8 @@ const client = new ApolloClient({
 
 
 import "./App.css"
-
-import Main from './pages/Home';
 import Nav from './components/Nav';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Likes from './pages/Likes';
 
 
 function App() {
@@ -43,12 +40,12 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div>
-            <Header/>
             <Nav />
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={Signup} />
+              <Route exact path= "/likes" component={Likes}/>
               <Route component={NoMatch} />
             </Switch>
         </div>
