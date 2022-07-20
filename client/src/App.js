@@ -7,10 +7,11 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-
+import SearchPhotos from "./searchPhotos"
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
+
 
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem('id_token');
@@ -30,6 +31,7 @@ const client = new ApolloClient({
 
 
 
+
 import "./App.css"
 import Nav from './components/Nav';
 import Likes from './pages/Likes';
@@ -37,21 +39,32 @@ import Likes from './pages/Likes';
 
 function App() {
   return (
-    <ApolloProvider client={client}>
-      <Router>
-        <div>
-            <Nav />
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/login" component={Login} />
-              <Route exact path="/signup" component={Signup} />
-              <Route exact path= "/likes" component={Likes}/>
-              <Route component={NoMatch} />
-            </Switch>
-        </div>
-      </Router>
-    </ApolloProvider>
+    <div className="App">
+      <div className="container">
+        <h1 className="title">React Photo Search</h1>
+        <SearchPhotos />
+      </div>
+    </div>
   );
 }
+
+// function App() {
+//   return (
+//     <ApolloProvider client={client}>
+//       <Router>
+//         <div>
+//             <Nav />
+//             <Switch>
+//               <Route exact path="/" component={Home} />
+//               <Route exact path="/login" component={Login} />
+//               <Route exact path="/signup" component={Signup} />
+//               <Route exact path= "/likes" component={Likes}/>
+//               <Route component={NoMatch} />
+//             </Switch>
+//         </div>
+//       </Router>
+//     </ApolloProvider>
+//   );
+// }
 
 export default App;

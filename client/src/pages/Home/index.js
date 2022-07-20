@@ -3,11 +3,7 @@ import PictureList from "../components/ProductList";
 
 
 const Home = () => {
-    return (
-      <div className="container">
-        <PictureList />
-      </div>
-    );
+    return 
   };
   
   export default Home;
