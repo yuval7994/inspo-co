@@ -1,49 +1,60 @@
 import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink,
+} from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
+
+const httpLink = createHttpLink({
+  uri: '/graphql',
+});
+
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem('id_token');
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    },
+  };
+});
+
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
+});
+
+
+
 
 import "./App.css"
 
-import Main from './components/Main';
+import Main from './pages/Home';
 import Nav from './components/Nav';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
 
 function App() {
-  const [section, setSection] = useState("main")
-
-  // const [githubData, setGithubData] = useState([]);
-  // const [githubUser, setGithubUser] = useState('pictures');
-
-  // const fetchData = () => {
-  //   return fetch(`https://api.artic.edu/api/v1/artworks`)
-  //   .then((response) => response.json())
-  //   .then((data) => setGithubData(data));
-  // }
-
-  // useEffect(() => {
-  //   fetchData()
-  // }, [])
-
-
   return (
-    
-    <>
-      <Header section={section} setSection={setSection} />
-      <Nav/>
-        <div className="App">
-          {section === "main" && < Main />}
-
-          {/* <input type="text" placeholder="Search for Art!" onChange={(e) => setGithubUser(e.target.value)} className="input_search" />
-          <button onClick={fetchData} className="search_button">Search</button>
-
-          <img src={`api/v1/artworks`} height="100" width="100" /> */}
-
+    <ApolloProvider client={client}>
+      <Router>
+        <div>
+            <Header/>
+            <Nav />
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/signup" component={Signup} />
+              <Route component={NoMatch} />
+            </Switch>
         </div>
-      <Footer />
-    </>
-
-    
-  )
+      </Router>
+    </ApolloProvider>
+  );
 }
 
 export default App;
