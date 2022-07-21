@@ -17,10 +17,16 @@ const startServer = async () => {
   })
   await server.start()
   server.applyMiddleware({ app })
-  console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`)
-}
 
-startServer()
+  db.once("open", () => {
+    app.listen(PORT, () => {
+      console.log(`API server running on port ${PORT}!`)
+      console.log(
+        `Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`
+      )
+    })
+  })
+}
 
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
@@ -34,8 +40,4 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"))
 })
 
-db.once("open", () => {
-  app.listen(PORT, () => {
-    console.log(`API server running on port ${PORT}!`)
-  })
-})
+startServer()
