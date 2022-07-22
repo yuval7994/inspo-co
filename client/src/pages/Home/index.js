@@ -1,5 +1,5 @@
 import React from "react";
-import PictureList from "../components/PictureList";
+import SearchPhotos from '../../searchPhotos';
 
 
 const Home = () => {
@@ -13,5 +13,5 @@ const Home = () => {
     )
   };
   
-  export default Home;
+  // export default Home;
   

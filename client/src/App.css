@@ -1,9 +1,10 @@
 :root {
-  --primary: #B38D97;
-  --secondary: #424B54;
-  --tertiary: #EBCFB2;
-  --quarnary: #D5ACA9;
-  --quinary: #C5BAAF;
+  --primary: #CACAAA;
+  --secondary: #EEC584;
+  --tertiary: #C8AB83;
+  --quarnary: #55868C;
+  --quinary: #7F636E;
+  --senary: #E6EEEF;
 }
 .App {
   text-align: center;
@@ -50,47 +51,49 @@
   font-family: 'Times New Roman', Times, serif;
   font-style: italic;
   font-size: 50px;
-  background-color: var(--primary);
-  color: var(--secondary);
+  background-color: var(--secondary);
+  color: var(--quarnary);
 }
 
 .nav-bar {
   list-style-type: none;
   font-family: 'Times New Roman', Times, serif;
-  font-size: 25px;
   font-weight: bold;
   margin: 0;
   padding-right: 50px;
 
 }
 
-.nav-bar li {
+.nav-bar ul button {
   display: inline;
-  padding: 5px;
   float: right;
-  margin-left: 0px;
-  
-  
-}
-
-.nav-bar li a {
-  text-decoration: none;
+  border: none;
   color: var(--secondary);
   margin-left: 50px;
+  font-size: 20px;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bolder;
+  transition: background-color 250ms;
 
 }
 
-.nav-bar li a:hover {
+.nav-bar ul button:hover {
   color: var(--tertiary);
 
 }
 
-.main-dash {
-  margin-top: 100px;
-  font-family: 'Times New Roman', Times, serif;
-  font-style: italic;
-  color: var(--secondary);
+.log-in,
+.sign-up {
+  margin: 0 auto;
+  border: 2px var(--quarnary) solid;
+  width: fit-content;
+  z-index: 9999;
 
+}
+
+.modal-title {
+  font-size: 25px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .footer {
@@ -104,28 +107,34 @@
   font-size: 20px;
   color: var(--secondary);
 }
+
 * {
   box-sizing: border-box;
-  background-color: rgb(244, 244, 244);
+  background-color: var(--senary);
   color: #333;
   font-size: 10px;
 }
+
 .App {
   margin: 0;
   padding: 0;
 }
+
 .container {
   margin: 0 auto;
   max-width: 1000px;
   padding: 40px;
 }
+
 .title {
   font-size: 4.4rem;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-family: monospace;
 }
+
 .form {
   display: grid;
 }
+
 .label {
   font-size: 3rem;
   margin-bottom: 1rem;
@@ -135,36 +144,65 @@
   font-size: 1.6rem;
   padding: 0.5rem 2rem;
   line-height: 2.8rem;
-  border-radius: 20px;
+  border: 5px var(--secondary) solid;
+  border-radius: 5px;
   background-color: white;
   margin-bottom: 1rem;
 }
+
 .button {
-  background-color: rgba(0, 0, 0, 0.75);
-  color: white;
+  background-color: var(--quinary);
+  color: var(--secondary);
   padding: 1rem 2rem;
-  border: 1px solid rgba(0, 0, 0, 0.75);
+  border: 1px solid var(--secondary);
   border-radius: 20px;
   font-size: 1.4rem;
   cursor: pointer;
   transition: background-color 250ms;
 }
+
 .button:hover {
-  background-color: rgba(0, 0, 0, 0.85);
+  background-color: var(--tertiary);
 }
+
 .card-list {
+  margin-top: 20px;
   column-count: 3;
 }
+
 .card {
+  position: relative;
   margin-bottom: 1rem;
   display: flex;
+  place-items: center;
+  
 }
 
 .card--image {
   flex: 100%;
   margin-top: 1rem;
   border-radius: 10px;
+  z-index: 1;
 }
+
+.likes-here {
+  background-color: transparent;
+  margin: 5px;
+
+}
+
+.heart {
+  display: flex;
+  vertical-align: auto;
+  color: var(--quinary);
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.heart:hover {
+  color: var(--quarnary);
+}
+
 @media (min-width: 768px) {
   .form {
     grid-template-columns: auto 1fr auto;

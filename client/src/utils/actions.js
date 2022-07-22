@@ -1,0 +1,4 @@
+export const LIKE_PICTURES = "LIKE_PICTURES";
+
+export const ADD_COMMENTS = "ADD_COMMENTS";
+export const SHARE_PICTURES = "SHARE_PICTURES";
