@@ -1,5 +1,5 @@
 import React from "react";
-import PictureList from "../components/ProductList";
+import PictureList from "../components/PictureList";
 
 
 const Home = () => {
