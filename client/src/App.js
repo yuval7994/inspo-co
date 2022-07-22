@@ -31,19 +31,8 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    <div className="App">
-      <div className="container">
-        <h1 className="title">Inspo-Co</h1>
-        <SearchPhotos />
-      </div>
-    </div>
-  )
-}
-
-// function App() {
-//   return (
-//     <ApolloProvider client={client}>
-//       <Router>
+  <ApolloProvider client={client}>
+     <Router>
 //         <div>
 //             <Nav />
 //             <Switch>
@@ -55,8 +44,8 @@ function App() {
 //             </Switch>
 //         </div>
 //       </Router>
-//     </ApolloProvider>
-//   );
-// }
+  </ApolloProvider>
+  )
+}
 
 export default App
