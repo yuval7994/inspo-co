@@ -50,10 +50,6 @@ export default function SearchPhotos() {
                 width="50%"
                 height="50%"
               ></img>
-
-              {/* <div className="likes-here">
-              <h1><a href="/" className="heart">♡</a></h1>
-              </div> */}
           </div>
         ))}
         

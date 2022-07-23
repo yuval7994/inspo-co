@@ -9,6 +9,10 @@ import Layout from '../src/pages/Layout/Layout.js'
 import LoggedIn from '../src/pages/LoggedIn/LoggedIn.js'
 // import MyLoves from '../src/pages/Likes'
 
+// *** import and route commented out for functionality sake. when content 
+// *** is in the index.js for the loves, uncomment and it should work given 
+// *** that the function and export default had not been changed
+
 import { BrowserRouter, Routes, Route, Link} from 'react-router-dom';
 // import reportWebVitals from './reportWebVitals';
 
