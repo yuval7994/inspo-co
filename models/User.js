@@ -20,20 +20,7 @@ const userSchema = new Schema(
       required: true,
       minlength: 5,
     },
-    comments: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Comment",
-      },
-    ],
     likes: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Photo",
-      },
-    ],
-
-    shares: [
       {
         type: Schema.Types.ObjectId,
         ref: "Photo",

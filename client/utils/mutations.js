@@ -6,6 +6,7 @@ export const LOGIN = gql`
       token
       user {
         _id
+        username
       }
     }
   }
@@ -26,6 +27,7 @@ export const ADD_USER = gql`
       token
       user {
         _id
+        username
       }
     }
   }
@@ -60,7 +62,7 @@ export const ADD_LIKE = gql`
   mutation addLike($photoId: ID!) {
     addLike(photoId: $photoId) {
       photo {
-        _id: ID
+        _id
         photo_name: String
         photo_url: String
         liked: User

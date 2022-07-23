@@ -16,12 +16,6 @@ const photoSchema = new Schema(
               ref: 'User'
             }
           ],
-        unliked: [
-            {
-              type: Schema.Types.ObjectId,
-              ref: 'User'
-            }
-          ]
     
     },
         {
