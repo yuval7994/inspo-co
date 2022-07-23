@@ -1,6 +1,7 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import Nav from '../../components/Nav';
+import Nav from '../../components/Nav/index';
+import Home from '../../pages/Home'
 import SearchPhotos from '../../searchPhotos'
 import { Link } from 'react-router-dom';
 
@@ -16,10 +17,9 @@ function Layout() {
               <h1 className="banner"><Link to="/" className="inspo-header">Inspo.Co</Link></h1>
             </div>
   
-            <div>
-                <Nav />
-            </div>
-            
+            {/* <div>
+                <Home />
+            </div> */}
             <div>
                 <Outlet />
             </div>

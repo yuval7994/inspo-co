@@ -10,7 +10,8 @@ import { Link } from 'react-router-dom';
 // import Signup from './pages/SignUp'
 // import NoMatch from './pages/NoMatch'
 
-import Nav from './components/Nav'
+import Nav from './components/Nav/index'
+import userNav from './components/Nav/usernav.js'
 
 // import {
 //   Router,
@@ -64,13 +65,13 @@ function App() {
             <h1 className="banner"><Link to="/" className="inspo-header">Inspo.Co</Link></h1>
           </div>
 
-          <div>
+          {/* <div>
               <Nav />
           </div>
 
           <div>
             <Outlet />
-          </div>
+          </div> */}
 
         </section>
 

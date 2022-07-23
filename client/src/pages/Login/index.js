@@ -76,10 +76,13 @@ import React, { useState } from "react"
 // import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { InputGroup, Form, Button } from 'react-bootstrap'
 import "../../App.css";
+import Nav from '../../components/Nav/index';
+
 
 function Login() {
   return (
     <>
+
     <Form className="login-form">
       <Form.Text className='login-form-title'>log in to view your faves ♡</Form.Text>
 
@@ -104,6 +107,7 @@ function Login() {
         <Button class="btn" variant="outline-secondary" id="button-addon2" type="submit">
           log in
         </Button>
+
     </Form>
     </>
   );
