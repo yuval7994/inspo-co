@@ -1,5 +1,5 @@
 import React from "react";
-import SearchPhotos from '../../searchPhotos.js';
+import UserSearchPhotos from '../../userSearchPhotos';
 import Home from '../Home'
 import UserNav from "../../components/Nav/usernav.js";
 
@@ -13,7 +13,7 @@ function LoggedIn() {
                 </div>
 
                 <div className="container">
-                    <SearchPhotos />
+                    <UserSearchPhotos />
                 </div>
             </div>
         </>

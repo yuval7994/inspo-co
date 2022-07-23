@@ -4,7 +4,7 @@ import Unsplash, { toJson } from "unsplash-js"
 const unsplash = new Unsplash({
   accessKey: "d4TUY8acyblsAg9WAHwzRunq-AEvEMD5SMuvzB4uhXk",
 })
-export default function SearchPhotos() {
+export default function UserSearchPhotos() {
 
   const [query, setQuery] = useState("")
   const [pics, setPics] = useState([])
@@ -51,9 +51,9 @@ export default function SearchPhotos() {
                 height="50%"
               ></img>
 
-              {/* <div className="likes-here">
+              <div className="likes-here">
               <h1><a href="/" className="heart">♡</a></h1>
-              </div> */}
+              </div>
           </div>
         ))}
         
