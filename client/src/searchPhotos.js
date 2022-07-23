@@ -5,8 +5,10 @@ const unsplash = new Unsplash({
   accessKey: "d4TUY8acyblsAg9WAHwzRunq-AEvEMD5SMuvzB4uhXk",
 })
 export default function SearchPhotos() {
+
   const [query, setQuery] = useState("")
   const [pics, setPics] = useState([])
+
   const searchPhotos = async (e) => {
     e.preventDefault()
     console.log("Submitting the Form")
@@ -15,7 +17,7 @@ export default function SearchPhotos() {
       .then(toJson)
       .then((json) => {
         setPics(json.results)
-        console.log(json)
+        // console.log(json)
       })
   }
 
@@ -24,13 +26,12 @@ export default function SearchPhotos() {
       <form className="form" onSubmit={searchPhotos}>
         <label className="label" htmlFor="query">
           {" "}
-          📷
         </label>
         <input
           type="text"
           name="query"
           className="input"
-          placeholder={`Try "dog" or "apple"`}
+          placeholder={`Search for your favorites here`}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
@@ -38,19 +39,24 @@ export default function SearchPhotos() {
           Search
         </button>
       </form>
+
       <div className="card-list">
         {pics.map((pic) => (
           <div className="card" key={pic.id}>
-            <img
-              className="card--image"
-              alt={pic.alt_description}
-              src={pic.urls.full}
-              width="50%"
-              height="50%"
-            ></img>
+              <img
+                className="card--image"
+                alt={pic.alt_description}
+                src={pic.urls.full}
+                width="50%"
+                height="50%"
+              ></img>
+
+              <div className="likes-here">
+              <h1><a href="/" className="heart">♡</a></h1>
+              </div>
           </div>
         ))}
-        ;
+        
       </div>
     </>
   )
