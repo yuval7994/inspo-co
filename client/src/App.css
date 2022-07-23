@@ -69,6 +69,7 @@
 
 }
 
+
 .nav-bar ul li,
 .login-title,
 .signup-title {
@@ -85,25 +86,56 @@
 
 }
 
+.login-form-title,
+.signup-form-title {
+  font-size: 15px;
+  text-decoration: none;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bolder;
+  color: var(--secondary);
+
+}
+
 .login-title:hover,
 .signup-title:hover {
   color: var(--tertiary);
 
 }
 
-/* .log-in,
-.sign-up {
-  margin: 0 auto;
+.login-form,
+.sign-up-form {
+  margin: 100px auto;
+  padding: 10px;
   border: 2px var(--quarnary) solid;
-  width: fit-content;
-  z-index: 9999;
+  border-radius: 7px;
+  width: 25%;
+  font-family: 'Times New Roman', Times, serif;
 
 }
 
-.modal-title {
-  font-size: 25px;
-  font-family: Arial, Helvetica, sans-serif;
-} */
+.form-input {
+  margin: 10px;
+  color: var(--secondary);
+  border: 1px var(--quarnary) solid;
+  border-radius: 2px;
+  outline: none;
+
+}
+
+.btn { 
+  font-family: 'Times New Roman', Times, serif;
+  background-color: var(--quinary);
+  color: var(--secondary);
+  border: 1px var(--quarnary) solid;
+  border-radius: 4px;
+}
+
+.btn:hover {
+  background-color: var(--tertiary);
+  color: var(--quarnary);
+  border: 2px var(--primary) solid;
+}
+
 
 .footer {
   position: absolute;

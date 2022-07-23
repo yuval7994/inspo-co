@@ -51,6 +51,7 @@ import {
 // import Likes from './pages/Likes';
 
 import SearchPhotos from '../src/searchPhotos'
+import { Outlet } from 'react-router-dom';
 
 function App() {
   return (
@@ -66,6 +67,11 @@ function App() {
           <div>
               <Nav />
           </div>
+
+          <div>
+            <Outlet />
+          </div>
+
         </section>
 
         <div className="container">

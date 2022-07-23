@@ -140,29 +140,47 @@ import React, { useState } from "react"
 
 // export default SignupForm
 
-import { InputGroup, Form, Button } from 'react-bootstrap'
+import { Form, Button } from 'react-bootstrap'
 import "../../App.css";
 
 function Signup() {
   return (
     <>
-    <h3 className='login-title'>log in</h3>
-    <div>
-    <InputGroup hasValidation>
-      <Form.Control 
-        type="text" 
-        required 
-        isInvalid 
-      />
-      <Form.Control.Feedback type="invalid">
-        please choose a username
-      </Form.Control.Feedback>
+    <Form className="sign-up-form">
+      <Form.Text className='signup-form-title'>sign up to save your favorite pics ♡</Form.Text>
 
-      <Button variant="outline-secondary" id="button-addon2">
-        sign up
-      </Button>
-    </InputGroup>
-    </div>
+      <Form.Group hasValidation>
+          <Form.Control className="form-input" 
+            type="email" 
+            required 
+            isInvalid 
+            placeholder="email"
+          />
+        </Form.Group>
+
+        <Form.Group hasValidation>
+          <Form.Control className="form-input" 
+            type="text" 
+            required 
+            isInvalid
+            placeholder="username"
+          />
+        </Form.Group>
+
+        <Form.Group hasValidation>
+          <Form.Control className="form-input" 
+            type="password" 
+            required 
+            isInvalid
+            placeholder="password"
+          />
+        </Form.Group>
+
+        <Button class="btn" variant="outline-secondary" id="button-addon2" type="submit">
+          sign up
+        </Button>
+    </Form>
+
     </>
   );
 }

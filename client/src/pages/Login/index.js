@@ -80,23 +80,31 @@ import "../../App.css";
 function Login() {
   return (
     <>
-    <h3 className='login-title'>log in</h3>
-    <div>
-    <InputGroup hasValidation>
-      <Form.Control 
-        type="text" 
-        required 
-        isInvalid 
-      />
-      <Form.Control.Feedback type="invalid">
-        please enter a username
-      </Form.Control.Feedback>
+    <Form className="login-form">
+      <Form.Text className='login-form-title'>log in to view your faves ♡</Form.Text>
 
-      <Button variant="outline-secondary" id="button-addon2">
-        log in
-      </Button>
-    </InputGroup>
-    </div>
+        <Form.Group hasValidation>
+          <Form.Control className="form-input" 
+            type="text" 
+            required 
+            isInvalid
+            placeholder="username"
+          />
+        </Form.Group>
+
+        <Form.Group hasValidation>
+          <Form.Control className="form-input" 
+            type="password" 
+            required 
+            isInvalid
+            placeholder="password"
+          />
+        </Form.Group>
+
+        <Button class="btn" variant="outline-secondary" id="button-addon2" type="submit">
+          log in
+        </Button>
+    </Form>
     </>
   );
 }

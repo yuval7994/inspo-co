@@ -68,8 +68,12 @@ function Nav() {
         <>
             <nav className="nav-bar">
                 <ul>
-                    <li><Link to ='/login' className="login-title">log in</Link></li>
-                    <li><Link to ='/signup' className="signup-title">sign up</Link></li>
+                    <li>
+                        <Link to ='/login' className="login-title">log in</Link>
+                    </li>
+                    <li>
+                        <Link to ='/signup' className="signup-title">sign up</Link>
+                    </li>
                 </ul> 
             </nav>
         </>
