@@ -1,4 +1,8 @@
 import React, { useEffect, useState } from "react"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import LogIn from './pages/Login/index'
+import { Link } from 'react-router-dom';
+
 
 // import Home from './pages/Home'
 // import Login from './pages/Login'
@@ -15,12 +19,14 @@ import Nav from './components/Nav'
 // } from 'react-router-dom'
 
 import "./App.css"
-// import {
-//   ApolloClient,
-//   InMemoryCache,
-//   ApolloProvider,
-//   createHttpLink,
-// } from "@apollo/client"
+
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink,
+} from "@apollo/client"
+
 // import { setContext } from "@apollo/client/link/context"
 // // import SearchPhotos from "./searchPhotos"
 // const httpLink = createHttpLink({
@@ -48,21 +54,25 @@ import SearchPhotos from '../src/searchPhotos'
 
 function App() {
   return (
-    <div className="App">
-      <section className="banner">
-        <div>
-          <h1 className="inspo-header">Inspo.Co</h1>
-        </div>
+    <>
 
-        <div>
-          <Nav />
-        </div>
-      </section>
+    
+      <div className="App">
+        <section>
+          <div>
+            <h1 className="banner"><Link to="/" className="inspo-header">Inspo.Co</Link></h1>
+          </div>
 
-      <div className="container">
-        <SearchPhotos />
+          <div>
+              <Nav />
+          </div>
+        </section>
+
+        <div className="container">
+          <SearchPhotos />
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 

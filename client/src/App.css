@@ -46,13 +46,18 @@
 }
 
 .inspo-header {
+  text-decoration: none;
   margin: 20px auto;
-  padding: 15px;
   font-family: 'Times New Roman', Times, serif;
   font-style: italic;
   font-size: 50px;
   background-color: var(--secondary);
   color: var(--quarnary);
+}
+
+.banner {
+  max-width: 100%;
+  background-color: var(--secondary);
 }
 
 .nav-bar {
@@ -64,7 +69,10 @@
 
 }
 
-.nav-bar ul button {
+.nav-bar ul li,
+.login-title,
+.signup-title {
+  text-decoration: none;
   display: inline;
   float: right;
   border: none;
@@ -77,12 +85,13 @@
 
 }
 
-.nav-bar ul button:hover {
+.login-title:hover,
+.signup-title:hover {
   color: var(--tertiary);
 
 }
 
-.log-in,
+/* .log-in,
 .sign-up {
   margin: 0 auto;
   border: 2px var(--quarnary) solid;
@@ -94,7 +103,7 @@
 .modal-title {
   font-size: 25px;
   font-family: Arial, Helvetica, sans-serif;
-}
+} */
 
 .footer {
   position: absolute;

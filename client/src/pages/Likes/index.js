@@ -1,0 +1,1 @@
+// this will just print likes from a stored array to a page formatted the same as home
