@@ -55,6 +55,14 @@
   color: var(--quarnary);
 }
 
+.nomatch-header {
+  margin: 100px auto;
+  font-family: 'Times New Roman', Times, serif;
+  font-style: italic;
+  font-size: 50px;
+  color: var(--quarnary);
+}
+
 .banner {
   max-width: 100%;
   background-color: var(--secondary);
