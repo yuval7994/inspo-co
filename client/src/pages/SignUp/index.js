@@ -176,7 +176,7 @@ function Signup() {
           />
         </Form.Group>
 
-        <Button class="btn" variant="outline-secondary" id="button-addon2" type="submit">
+        <Button class="btn" variant="outline-secondary" id="button-addon2" type="submit" href='/loggedin'>
           sign up
         </Button>
     </Form>

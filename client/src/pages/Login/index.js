@@ -74,10 +74,9 @@ import React, { useState } from "react"
 // };
 
 // import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import { InputGroup, Form, Button } from 'react-bootstrap'
+import { Form, Button } from 'react-bootstrap'
+import LoggedIn from '../LoggedIn/LoggedIn'
 import "../../App.css";
-import Nav from '../../components/Nav/index';
-
 
 function Login() {
   return (
@@ -104,7 +103,7 @@ function Login() {
           />
         </Form.Group>
 
-        <Button class="btn" variant="outline-secondary" id="button-addon2" type="submit">
+        <Button class="btn" variant="outline-secondary" id="button-addon2" type="submit" href='/loggedin'>
           log in
         </Button>
 

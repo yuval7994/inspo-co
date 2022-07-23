@@ -124,10 +124,13 @@
 
 .btn { 
   font-family: 'Times New Roman', Times, serif;
+  text-decoration: none;
   background-color: var(--quinary);
   color: var(--secondary);
   border: 1px var(--quarnary) solid;
   border-radius: 4px;
+  font-size: 11px;
+  padding: 2px;
 }
 
 .btn:hover {
