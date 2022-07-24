@@ -1,152 +1,41 @@
 import React, { useState } from "react"
-
-// import {
-//   Form,
-//   Alert,
-//   Button
-// } from 'react-bootstrap'
-
-// import Auth from "../../utils/auth"
-// import { useMutation } from "@apollo/client"
-// import { ADD_USER } from "../../utils/mutations"
-
-// const SignupForm = () => {
-//   // set initial form state
-//   const [userFormData, setUserFormData] = useState({
-//     username: "",
-//     email: "",
-//     password: "",
-//   })
-//   // set state for form validation
-//   const [validated] = useState(false)
-//   // set state for alert
-//   const [showAlert, setShowAlert] = useState(false)
-//   const [createUser, { error }] = useMutation(ADD_USER)
-
-//   const handleInputChange = (event) => {
-//     const { name, value } = event.target
-//     setUserFormData({ ...userFormData, [name]: value })
-//   }
-
-//   const handleFormSubmit = async (event) => {
-//     event.preventDefault()
-
-//     const form = event.currentTarget
-//     if (form.checkValidity() === false) {
-//       event.preventDefault()
-//       event.stopPropagation()
-//     }
-
-//     try {
-//       const { data } = await createUser({
-//         variables: userFormData,
-//       })
-
-//       const { addUser } = data
-//       if (error) {
-//         throw new Error("something went wrong!")
-//       }
-
-//       const { token, user } = addUser
-//       console.log(user)
-//       Auth.login(token)
-//     } catch (err) {
-//       console.error(err)
-//       setShowAlert(true)
-//     }
-
-//     setUserFormData({
-//       username: "",
-//       email: "",
-//       password: "",
-//     })
-//   }
-
-//   return (
-//     <>
-//       {/* This is needed for the validation functionality above */}
-//       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
-//         {/* show alert if server response is bad */}
-//         <Alert
-//           dismissible
-//           onClose={() => setShowAlert(false)}
-//           show={showAlert}
-//           variant="danger"
-//         >
-//           Something went wrong with your signup!
-//         </Alert>
-
-//         <Form.Group>
-//           <Form.Label htmlFor="username">Username</Form.Label>
-//           <Form.Control
-//             type="text"
-//             placeholder="Your username"
-//             name="username"
-//             onChange={handleInputChange}
-//             value={userFormData.username}
-//             required
-//           />
-//           <Form.Control.Feedback type="invalid">
-//             Username is required!
-//           </Form.Control.Feedback>
-//         </Form.Group>
-
-//         <Form.Group>
-//           <Form.Label htmlFor="email">Email</Form.Label>
-//           <Form.Control
-//             type="email"
-//             placeholder="Your email address"
-//             name="email"
-//             onChange={handleInputChange}
-//             value={userFormData.email}
-//             required
-//           />
-//           <Form.Control.Feedback type="invalid">
-//             Email is required!
-//           </Form.Control.Feedback>
-//         </Form.Group>
-
-//         <Form.Group>
-//           <Form.Label htmlFor="password">Password</Form.Label>
-//           <Form.Control
-//             type="password"
-//             placeholder="Your password"
-//             name="password"
-//             onChange={handleInputChange}
-//             value={userFormData.password}
-//             required
-//           />
-//           <Form.Control.Feedback type="invalid">
-//             Password is required!
-//           </Form.Control.Feedback>
-//         </Form.Group>
-//         <Button
-//           disabled={
-//             !(
-//               userFormData.username &&
-//               userFormData.email &&
-//               userFormData.password
-//             )
-//           }
-//           type="submit"
-//           variant="success"
-//         >
-//           Submit
-//         </Button>
-//       </Form>
-//     </>
-//   )
-// }
-
-// export default SignupForm
-
+import { useMutation } from "@apollo/client";
+import { ADD_USER } from "../../utils/mutations";
+import Auth from "../../utils/auth";
 import { Form, Button } from 'react-bootstrap'
 import "../../App.css";
 
 function Signup() {
+  const [formState, setFormState] = useState({ email: '', password: '', username: ''});
+  const [addUser] = useMutation(ADD_USER);
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    const mutationResponse = await addUser({
+      variables: {
+        email: formState.email,
+        password: formState.password,
+        username: formState.username,
+      },
+    });
+    const token = mutationResponse.data.addUser.token;
+    Auth.login(token);
+    console.log('hi')
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
+
+
+
   return (
     <>
-    <Form className="sign-up-form">
+    <Form onSubmit={handleFormSubmit} className="sign-up-form">
       <Form.Text className='signup-form-title'>sign up to save your favorite pics ♡</Form.Text>
 
       <Form.Group hasValidation>
@@ -155,6 +44,8 @@ function Signup() {
             required 
             isInvalid 
             placeholder="email"
+            name = "email"
+            onChange={handleChange}
           />
         </Form.Group>
 
@@ -164,6 +55,8 @@ function Signup() {
             required 
             isInvalid
             placeholder="username"
+            name = "username"
+            onChange={handleChange}
           />
         </Form.Group>
 
@@ -173,10 +66,12 @@ function Signup() {
             required 
             isInvalid
             placeholder="password"
+            name = "password"
+            onChange={handleChange}
           />
         </Form.Group>
 
-        <Button class="btn" variant="outline-secondary" id="button-addon2" type="submit" href='/loggedin'>
+        <Button class="btn" variant="outline-secondary" id="button-addon2" type="submit">
           sign up
         </Button>
     </Form>

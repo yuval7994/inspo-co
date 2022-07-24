@@ -1,23 +1,22 @@
-import React, { useEffect, useState } from "react"
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import LogIn from './pages/Login/index'
-import { Link } from 'react-router-dom';
+import React from "react"
+import ReactDOM from "react-dom/client"
+import "./index.css"
+// import App from "./App"
+import Login from '../src/pages/Login'
+import Signup from '../src/pages/SignUp'
+import Home from '../src/pages/Home'
+import Layout from '../src/pages/Layout/Layout.js'
+import LoggedIn from '../src/pages/LoggedIn/LoggedIn.js'
+// import MyLoves from '../src/pages/Likes'
+import NoMatch from '../src/pages/NoMatch'
+
+// *** MyLoves import and route commented out for functionality sake. when content 
+// *** is in the index.js for the loves, uncomment and it should work given 
+// *** that the function and export default had not been changed
+import { BrowserRouter, Routes, Route, Link} from 'react-router-dom';
+// import reportWebVitals from './reportWebVitals';
 
 
-// import Home from './pages/Home'
-// import Login from './pages/Login'
-// import Likes from './pages/Likes'
-// import Signup from './pages/SignUp'
-// import NoMatch from './pages/NoMatch'
-
-import Nav from './components/Nav/index'
-import userNav from './components/Nav/usernav.js'
-
-// import {
-//   Router,
-//   Route,
-//   Routes
-// } from 'react-router-dom'
 
 import "./App.css"
 
@@ -28,58 +27,53 @@ import {
   createHttpLink,
 } from "@apollo/client"
 
-// import { setContext } from "@apollo/client/link/context"
-// // import SearchPhotos from "./searchPhotos"
-// const httpLink = createHttpLink({
-//   uri: "/graphql",
-// })
+import { setContext } from "@apollo/client/link/context"
+// import SearchPhotos from "./searchPhotos"
+const httpLink = createHttpLink({
+  uri: "/graphql",
+})
 
-// const authLink = setContext((_, { headers }) => {
-//   const token = localStorage.getItem("id_token")
-//   return {
-//     headers: {
-//       ...headers,
-//       authorization: token ? `Bearer ${token}` : "",
-//     },
-//   }
-// })
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem("id_token")
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : "",
+    },
+  }
+})
 
-// const client = new ApolloClient({
-//   link: authLink.concat(httpLink),
-//   cache: new InMemoryCache(),
-// })
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
+})
 
 // import Likes from './pages/Likes';
 
-import SearchPhotos from '../src/searchPhotos'
-import { Outlet } from 'react-router-dom';
+
 
 function App() {
   return (
     <>
 
-    
-      <div className="App">
-        <section>
-          <div>
-            <h1 className="banner"><Link to="/" className="inspo-header">Inspo.Co</Link></h1>
-          </div>
-
-          {/* <div>
-              <Nav />
-          </div>
-
-          <div>
-            <Outlet />
-          </div> */}
-
-        </section>
-
-        <div className="container">
-          <SearchPhotos />
-        </div>
-      </div>
-    </>
+<div>
+<ApolloProvider client={client}>
+    <BrowserRouter>
+        <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<Home />} />
+                <Route path="login" element={<Login />} />
+                <Route path="signup" element={<Signup />} />
+                <Route path="loggedin" element={<LoggedIn />} />
+                <Route path="logout" element={<Home />} />
+                {/* <Route path="myloves" element={<MyLoves />} /> */}
+                <Route path="nomatch" element={<NoMatch />} />
+            </Route>
+        </Routes>
+    </BrowserRouter>
+    </ApolloProvider>
+</div>
+</>
   )
 }
 
